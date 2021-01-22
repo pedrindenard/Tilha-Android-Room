@@ -13,6 +13,8 @@ public class Aluno implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id = 0;
     private String nome;
+    private String sobrenome;
+    private String edereço;
     private String telefone;
     private String email;
 
@@ -25,8 +27,22 @@ public class Aluno implements Serializable {
 
     public Aluno() { }
 
-    @NonNull
-    @Override
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public String getEdereço() {
+        return edereço;
+    }
+
+    public void setEdereço(String edereço) {
+        this.edereço = edereço;
+    }
+
     public String toString() {
         return nome + " - " + telefone;
     }
@@ -65,5 +81,9 @@ public class Aluno implements Serializable {
 
     public boolean temIdValido() {
         return id > 0;
+    }
+
+    public String getNomeCompleto() {
+        return nome + " " + sobrenome;
     }
 }

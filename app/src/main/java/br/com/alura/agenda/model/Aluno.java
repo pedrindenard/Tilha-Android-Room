@@ -21,15 +21,6 @@ public class Aluno implements Serializable {
     private String email;
     private Calendar momentoDeCadastro = Calendar.getInstance();
 
-    @Ignore
-    public Aluno(String nome, String telefone, String email) {
-        this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
-    }
-
-    public Aluno() { }
-
     public Calendar getMomentoDeCadastro() {
         return momentoDeCadastro;
     }
@@ -96,10 +87,5 @@ public class Aluno implements Serializable {
 
     public String getNomeCompleto() {
         return nome + " " + sobrenome;
-    }
-
-    public String dataFormatada() {
-        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-        return formatador.format(momentoDeCadastro.getTime());
     }
 }

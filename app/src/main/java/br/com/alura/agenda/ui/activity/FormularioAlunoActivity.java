@@ -69,8 +69,8 @@ public class FormularioAlunoActivity extends AppCompatActivity {
         campoNome.setText(aluno.getNome());
         campoSobrenome.setText(aluno.getSobrenome());
         campoEndereco.setText(aluno.getEdereço());
-        campoTelefoneFixo.setText(aluno.getTelefoneFixo());
-        campoTelefoneCelular.setText(aluno.getTelefoneCelular());
+        //campoTelefoneFixo.setText(aluno.getTelefoneFixo());
+        //campoTelefoneCelular.setText(aluno.getTelefoneCelular());
         campoEmail.setText(aluno.getEmail());
     }
 
@@ -105,8 +105,8 @@ public class FormularioAlunoActivity extends AppCompatActivity {
         aluno.setNome(nome);
         aluno.setSobrenome(sobrenome);
         aluno.setEdereço(endereco);
-        aluno.setTelefoneFixo(telefoneFixo);
-        aluno.setTelefoneCelular(telefoneCelular);
+        //aluno.setTelefoneFixo(telefoneFixo);
+        //aluno.setTelefoneCelular(telefoneCelular);
         aluno.setEmail(email);
     }
 }

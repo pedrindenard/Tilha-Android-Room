@@ -5,6 +5,7 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 
 @Entity
 public class Aluno implements Serializable {
@@ -14,10 +15,17 @@ public class Aluno implements Serializable {
     private String nome;
     private String sobrenome;
     private String edereço;
-    private String telefoneFixo;
-    private String telefoneCelular;
     private String email;
     private Calendar momentoDeCadastro = Calendar.getInstance();
+    private List<Telefone> telefones;
+
+    public List<Telefone> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(List<Telefone> telefones) {
+        this.telefones = telefones;
+    }
 
     public Calendar getMomentoDeCadastro() {
         return momentoDeCadastro;
@@ -44,15 +52,11 @@ public class Aluno implements Serializable {
     }
 
     public String toString() {
-        return nome + " - " + telefoneFixo;
+        return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public void setTelefoneFixo(String telefoneFixo) {
-        this.telefoneFixo = telefoneFixo;
     }
 
     public void setEmail(String email) {
@@ -61,10 +65,6 @@ public class Aluno implements Serializable {
 
     public String getNome() {
         return nome;
-    }
-
-    public String getTelefoneFixo() {
-        return telefoneFixo;
     }
 
     public String getEmail() {
@@ -85,13 +85,5 @@ public class Aluno implements Serializable {
 
     public String getNomeCompleto() {
         return nome + " " + sobrenome;
-    }
-
-    public String getTelefoneCelular() {
-        return telefoneCelular;
-    }
-
-    public void setTelefoneCelular(String telefoneCelular) {
-        this.telefoneCelular = telefoneCelular;
     }
 }

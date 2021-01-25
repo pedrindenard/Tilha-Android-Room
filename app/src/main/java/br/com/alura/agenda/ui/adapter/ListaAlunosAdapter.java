@@ -53,7 +53,7 @@ public class ListaAlunosAdapter extends BaseAdapter {
         nome.setText(aluno.getNomeCompleto());
         TextView telefone = view.findViewById(R.id.item_aluno_telefone);
         TelefoneDAO dao = AgendaDatabase.getInstance(context).getTelefoneDAO();
-        Telefone primeiroTelefone = dao.buscaPrimeiroTelefoneDoAluno();
+        Telefone primeiroTelefone = dao.buscaPrimeiroTelefoneDoAluno(aluno.getId()  );
         telefone.setText(primeiroTelefone.getNumero());
     }
 

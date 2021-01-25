@@ -21,7 +21,8 @@ public class FormularioAlunoActivity extends AppCompatActivity {
     private EditText campoNome;
     private EditText campoSobrenome;
     private EditText campoEndereco;
-    private EditText campoTelefone;
+    private EditText campoTelefoneFixo;
+    private EditText campoTelefoneCelular;
     private EditText campoEmail;
     private AlunoDAO dao;
     private Aluno aluno;
@@ -68,7 +69,8 @@ public class FormularioAlunoActivity extends AppCompatActivity {
         campoNome.setText(aluno.getNome());
         campoSobrenome.setText(aluno.getSobrenome());
         campoEndereco.setText(aluno.getEdereço());
-        campoTelefone.setText(aluno.getTelefone());
+        campoTelefoneFixo.setText(aluno.getTelefoneFixo());
+        campoTelefoneCelular.setText(aluno.getTelefoneCelular());
         campoEmail.setText(aluno.getEmail());
     }
 
@@ -86,7 +88,8 @@ public class FormularioAlunoActivity extends AppCompatActivity {
         campoNome = findViewById(R.id.activity_formulario_aluno_nome);
         campoSobrenome = findViewById(R.id.activity_formulario_aluno_sobrenome);
         campoEndereco = findViewById(R.id.activity_formulario_aluno_endereco);
-        campoTelefone = findViewById(R.id.activity_formulario_aluno_telefone);
+        campoTelefoneFixo = findViewById(R.id.activity_formulario_aluno_telefone_fixo);
+        campoTelefoneCelular = findViewById(R.id.activity_formulario_aluno_telefone_celular);
         campoEmail = findViewById(R.id.activity_formulario_aluno_email);
     }
 
@@ -94,14 +97,16 @@ public class FormularioAlunoActivity extends AppCompatActivity {
         String nome = campoNome.getText().toString();
         String sobrenome = campoSobrenome.getText().toString();
         String endereco = campoEndereco.getText().toString();
-        String telefone = campoTelefone.getText().toString();
+        String telefoneFixo = campoTelefoneFixo.getText().toString();
+        String telefoneCelular = campoTelefoneCelular.getText().toString();
         String email = campoEmail.getText().toString();
 
 
         aluno.setNome(nome);
         aluno.setSobrenome(sobrenome);
         aluno.setEdereço(endereco);
-        aluno.setTelefone(telefone);
+        aluno.setTelefoneFixo(telefoneFixo);
+        aluno.setTelefoneCelular(telefoneCelular);
         aluno.setEmail(email);
     }
 }

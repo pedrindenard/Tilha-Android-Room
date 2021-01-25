@@ -19,7 +19,28 @@ class AgendaMigrations {
             database.execSQL("ALTER TABLE aluno ADD COLUMN momentoDeCadastro INTEGER");
         }
     };
-    static final Migration[] TODAS_MIGRATIONS = {MIGRATION_1_2, MIGRATION_2_3};
+    private static final Migration MIGRATION_3_4 = new Migration(3, 4) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("CREATE TABLE IF NOT EXISTS `Aluno_novo` (" +
+                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                    "`nome` TEXT, " +
+                    "`sobrenome` TEXT, " +
+                    "`edereço` TEXT, " +
+                    "`telefoneFixo` TEXT, " +
+                    "`telefoneCelular` TEXT, " +
+                    "`email` TEXT, " +
+                    "`momentoDeCadastro` INTEGER)");
+
+            database.execSQL("INSERT INTO Aluno_novo (id, nome, telefoneFixo, email, momentoDeCadastro)" +
+                    "SELECT id, nome, telefone, email, momentoDeCadastro FROM Aluno");
+
+            database.execSQL("DROP TABLE Aluno");
+
+            database.execSQL("ALTER TABLE Aluno_novo RENAME TO Aluno");
+        }
+    };
+    static final Migration[] TODAS_MIGRATIONS = {MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4};
 }
 
 

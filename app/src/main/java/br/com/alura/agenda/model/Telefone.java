@@ -1,6 +1,5 @@
 package br.com.alura.agenda.model;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
@@ -20,6 +19,11 @@ public class Telefone {
             onUpdate = CASCADE,
             onDelete = CASCADE)
     private int alunoId;
+
+    public Telefone(String numero, TipoTelefone tipo) {
+        this.numero = numero;
+        this.tipo = tipo;
+    }
 
     public int getAlunoId() {
         return alunoId;

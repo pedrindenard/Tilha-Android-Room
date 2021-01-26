@@ -25,6 +25,7 @@ public abstract class AgendaDatabase extends RoomDatabase {
     private static final String NOME_BANDO_DE_DADOS = "agenda.db";
 
     public abstract AlunoDAO getRoomAlunoDAO();
+    public abstract TelefoneDAO getTelefoneDAO();
 
     public static AgendaDatabase getInstance(Context context) {
         return Room
@@ -33,6 +34,4 @@ public abstract class AgendaDatabase extends RoomDatabase {
                 .addMigrations(TODAS_MIGRATIONS)
                 .build();
     }
-
-    public abstract TelefoneDAO getTelefoneDAO();
 }

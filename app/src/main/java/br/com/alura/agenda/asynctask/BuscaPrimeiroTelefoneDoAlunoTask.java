@@ -6,16 +6,16 @@ import android.widget.TextView;
 import br.com.alura.agenda.database.dao.TelefoneDAO;
 import br.com.alura.agenda.model.Telefone;
 
-public class BuscaPrimeiroTelefoneDoAluno extends AsyncTask<Void, Void, Telefone> {
+public class BuscaPrimeiroTelefoneDoAlunoTask extends AsyncTask<Void, Void, Telefone> {
 
     private final TelefoneDAO dao;
-    private final TextView campoTelefone;
     private final int alunoId;
+    private final PrimeiroTelefoneEncontradoListener listener;
 
-    public BuscaPrimeiroTelefoneDoAluno(TelefoneDAO dao, TextView campoTelefone, int alunoId) {
+    public BuscaPrimeiroTelefoneDoAlunoTask(TelefoneDAO dao, int alunoId, PrimeiroTelefoneEncontradoListener litener) {
         this.dao = dao;
-        this.campoTelefone = campoTelefone;
         this.alunoId = alunoId;
+        this.listener = litener;
     }
 
     @Override
@@ -26,7 +26,10 @@ public class BuscaPrimeiroTelefoneDoAluno extends AsyncTask<Void, Void, Telefone
     @Override
     protected void onPostExecute(Telefone primeirotelefone) {
         super.onPostExecute(primeirotelefone);
-        if (primeirotelefone != null)
-            campoTelefone.setText(primeirotelefone.getNumero());
+        listener.quandoEncontrado(primeirotelefone);
+    }
+
+    public interface PrimeiroTelefoneEncontradoListener {
+        void quandoEncontrado(Telefone telefoneEncontrado);
     }
 }

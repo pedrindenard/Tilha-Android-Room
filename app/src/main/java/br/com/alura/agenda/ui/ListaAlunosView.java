@@ -7,7 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import br.com.alura.agenda.asynctask.RemoveAlunoTask;
-import br.com.alura.agenda.asynctask.buscaAlunosTask;
+import br.com.alura.agenda.asynctask.BuscaAlunosTask;
 import br.com.alura.agenda.database.AgendaDatabase;
 import br.com.alura.agenda.database.AlunoDAO;
 import br.com.alura.agenda.model.Aluno;
@@ -40,7 +40,7 @@ public class ListaAlunosView {
     }
 
     public void atualizaAlunos() {
-        new buscaAlunosTask(dao, adapter).execute();
+        new BuscaAlunosTask(dao, adapter).execute();
     }
 
     private void remove(Aluno aluno) {
